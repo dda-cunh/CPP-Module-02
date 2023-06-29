@@ -4,8 +4,6 @@
 # include <iostream>
 # include <cmath>
 
-# define EPSILON 0.00390625
-
 class	Fixed
 {
 	public:
@@ -28,10 +26,10 @@ class	Fixed
 		Fixed operator--(int);
 		Fixed & operator--();
 
-		float operator+(Fixed const & rhs) const;
-		float operator-(Fixed const & rhs) const;
-		float operator*(Fixed const & rhs) const;
-		float operator/(Fixed const & rhs) const;
+		Fixed operator+(Fixed const & rhs) const;
+		Fixed operator-(Fixed const & rhs) const;
+		Fixed operator*(Fixed const & rhs) const;
+		Fixed operator/(Fixed const & rhs) const;
 
 		bool operator>(Fixed const & rhs) const;
 		bool operator>=(Fixed const & rhs) const;
@@ -40,10 +38,10 @@ class	Fixed
 		bool operator==(Fixed const & rhs) const;
 		bool operator!=(Fixed const & rhs) const;
 
-		const static Fixed & max(Fixed const & lhs, Fixed const & rhs);
-		static Fixed & max(Fixed & lhs, Fixed & rhs);
-		const static Fixed & min(Fixed const & lhs, Fixed const & rhs);
-		static Fixed & min(Fixed & lhs, Fixed & rhs);
+		static const	Fixed & max(Fixed const & lhs, Fixed const & rhs);
+		static			Fixed & max(Fixed & lhs, Fixed & rhs);
+		static const	Fixed & min(Fixed const & lhs, Fixed const & rhs);
+		static			Fixed & min(Fixed & lhs, Fixed & rhs);
 
 	private:
 		int					value;

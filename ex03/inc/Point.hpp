@@ -12,11 +12,11 @@ class	Point
 		Point & operator=(Point const & rhs);
 		~Point(void);
 
-		Point(float const x, float const y);
+		Point(float const newx, float const newy);
 		const Fixed & getX() const;
 		const Fixed & getY() const;
-		void	setX(Fixed const & x);
-		void	setY(Fixed const & y);
+		void	setX(Fixed const & newx);
+		void	setY(Fixed const & newy);
 
 	private:
 		Fixed	x;

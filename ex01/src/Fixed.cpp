@@ -1,4 +1,4 @@
-#include "Fixed.hpp"
+#include "../inc/Fixed.hpp"
 
 Fixed::Fixed(void) : value(0)
 {
@@ -27,15 +27,43 @@ Fixed::~Fixed(void)
 	return ;
 }
 
+Fixed::Fixed(const int integer) : value(integer << nBits)
+{
+	std::cout << "Int constructor called" << std::endl;	
+	return ;
+}
+
+Fixed::Fixed(const float f) : value(roundf(f * 256))
+{
+	std::cout << "Float constructor called" << std::endl;
+	return ;
+}
+
+float	Fixed::toFloat() const
+{
+	return ((float)value / 256);
+}
+
+int	Fixed::toInt() const
+{
+	if (this->value | 0x00000000)
+		return (this->value / 256);
+	return (this->getRawBits());
+}
+
 int	Fixed::getRawBits() const
 {
-	std::cout << "getRawBits member function called" << std::endl;
 	return (this->value);
 }
 
 void	Fixed::setRawBits(const int raw)
 {
-	std::cout << "setRawBits member function called" << std::endl;
 	this->value = raw;
 	return ;
+}
+
+std::ostream & operator<<(std::ostream & o, Fixed const & i)
+{
+	o << i.toFloat();
+	return (o);
 }

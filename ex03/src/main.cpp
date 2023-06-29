@@ -11,13 +11,14 @@ void	test(Point & a, Point & b, Point  & c, Point & point)
 	else
 		std::cout << " doesn't belong to the triangle" << std::endl;
 	std::cout << a << "\t" << b << "\t" << c << std::endl;
+    std::cout << std::endl << std::endl;
 }
 int main(void)
 {
 	Point	a(0, 0);
-	Point	b(10, 30);
+	Point	b(0, 20);
 	Point	c(20, 0);
-	Point	point(10, 15);
+	Point	point(10, 12);
 
 	test(a, b, c, point);
 	point.setX(1);
@@ -25,6 +26,18 @@ int main(void)
 	test(a, b, c, point);
 	point.setX(1);
 	point.setY(10);
+	test(a, b, c, point);
+    point.setX(10);
+	point.setY(0);
+	test(a, b, c, point);
+    point.setX(10);
+	point.setY(0.00390625f);
+	test(a, b, c, point);
+    point.setX(20);
+	point.setY(0);
+	test(a, b, c, point);
+    point.setX(8);
+	point.setY(12);
 	test(a, b, c, point);
 	return (0);
 }
